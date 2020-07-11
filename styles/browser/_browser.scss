@@ -1,0 +1,20 @@
+$width-sm: 320px;
+$width-md: 768px;
+$width-lg: 1024px;
+$width-xl: 1280px;
+
+@mixin breakpoint($point) {
+	@if $point == pc {
+		@media only screen and ($width-lg) {
+			@content;
+		}
+	} @else if $point == pad {
+		@media only screen and ($width-md) {
+			@content;
+		}
+	} @else if $point == mobile {
+		@media only screen and ($width-sm) {
+			@content;
+		}
+	}
+}
