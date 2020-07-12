@@ -3,8 +3,10 @@ import Layout from "../Layout/Layout";
 import ClassInfoBox from "../components/ClassInfoBox/ClassInfoBox";
 import VideoBox from "../components/VideoBox/VideoBox";
 import InformationBox from "../components/InformationBox/InformationBox";
-import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
+import ClassTitleWrapper from "../components/ClassTitleWrapper/ClassTitleWrapper";
+import ShareWrapper from "../components/ShareWrapper/ShareWrapper";
+import AboutClass from "../components/AboutClass/AboutClass";
+import Registered from "../components/Registered/Registered";
 import Grid from "@material-ui/core/Grid";
 
 const Index = () => {
@@ -15,7 +17,15 @@ const Index = () => {
 				<VideoBox />
 				<InformationBox />
 			</section>
-			<section className="classDetail"></section>
+			<section className="classDetail">
+				<div className="classDetailInner">
+					<ClassTitleWrapper />
+					<ShareWrapper />
+					<AboutClass />
+				</div>
+				<Registered />
+			</section>
+			<section className="Syllabus"></section>
 		</div>
 	);
 };

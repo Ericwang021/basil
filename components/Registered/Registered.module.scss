@@ -1,0 +1,15 @@
+@import "../../styles//global/typeFont.scss";
+@import "../../styles/global/color";
+
+.registeredBox {
+	width: 100%;
+	.registerBoxInner {
+		.subText {
+			font-size: map-get($desktopFont, $h4-size);
+			text-align: center;
+			font-weight: $font-weight-bold;
+			color: $gray03;
+			margin-top: 10px;
+		}
+	}
+}

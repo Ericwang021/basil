@@ -9,4 +9,12 @@
 		column-gap: 10px;
 		margin-top: 20px;
 	}
+	.classDetail {
+		width: 100%;
+		display: grid;
+		grid-template-columns: 60% auto;
+		column-gap: 10px;
+		grid-template-rows: 3fr;
+		margin-top: 15px;
+	}
 }

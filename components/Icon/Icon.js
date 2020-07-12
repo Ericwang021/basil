@@ -9,6 +9,9 @@ import { ic_close } from "react-icons-kit/md/ic_close";
 import { ic_send } from "react-icons-kit/md/ic_send";
 import { ic_add_circle } from "react-icons-kit/md/ic_add_circle";
 import { ic_check_circle } from "react-icons-kit/md/ic_check_circle";
+import { thumbsOUp } from "react-icons-kit/fa/thumbsOUp";
+import { thumbsUp } from "react-icons-kit/fa/thumbsUp";
+import { ic_share } from "react-icons-kit/md/ic_share";
 
 const IconContainer = withBaseIcon({ size: 24 });
 export const IconLan = () => <IconContainer icon={ic_language} />;
@@ -20,3 +23,6 @@ export const IconClose = () => <IconContainer icon={ic_close} />;
 export const IconSend = () => <IconContainer icon={ic_send} />;
 export const IconAdd = () => <IconContainer icon={ic_add_circle} />;
 export const IconCheckCircle = () => <IconContainer icon={ic_check_circle} />;
+export const IconThumbUpOutline = () => <IconContainer icon={thumbsOUp} />;
+export const IconThumbDown = () => <IconContainer icon={thumbsUp} />;
+export const IconShare = () => <IconContainer icon={ic_share} />;

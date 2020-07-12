@@ -1,0 +1,32 @@
+@import "../../styles/global/color";
+@import "../../styles/global/typeFont.scss";
+@import "../../styles/global/variable";
+
+.classTitleWrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	.title {
+		font-size: map-get($desktopFont, $h1-size);
+		font-weight: $font-weight-bold;
+		color: $gray03;
+		margin-bottom: 15px;
+	}
+	> ul {
+		display: flex;
+		align-items: center;
+		> li {
+			margin-right: 15px;
+			padding-right: 15px;
+			border-right: 1px solid $gray03;
+			color: $gray03;
+			font-size: map-get($desktopFont, $h5-size);
+			&:last-child {
+				margin-right: 0;
+				padding-right: 0;
+				border-right: none;
+			}
+		}
+	}
+}
