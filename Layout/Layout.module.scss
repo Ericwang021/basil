@@ -1,0 +1,7 @@
+@import "../styles/global/color";
+
+.containerBackground {
+	height: calc(100vh - 105px);
+	padding: 0 20px;
+	background-color: $gray07;
+}
