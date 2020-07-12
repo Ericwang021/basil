@@ -1,8 +1,196 @@
 @import "../../styles/global/color";
+@import "../../styles/global/typeFont.scss";
 
 .infoWrapper {
 	width: 100%;
 	background-color: $blue10;
 	.infoWrapperInner {
+		padding: 10px 15px;
+	}
+}
+.wrapperTitleBox {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	.title {
+		font-size: map-get($desktopFont, $h4-size);
+		color: $green04;
+		span {
+			margin-right: 10px;
+			i {
+				color: $green04;
+			}
+		}
+	}
+}
+.searchBox {
+	position: relative;
+	input {
+		position: absolute;
+		right: 50px;
+		top: 0px;
+		padding: 10px;
+		border-radius: 5px;
+		border: none;
+		box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.7);
+	}
+	> span {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		padding: 15px;
+		background-color: $gray08;
+	}
+}
+
+.addNew {
+	width: 100%;
+	.addNewBox {
+		display: flex;
+		align-items: center;
+		margin-bottom: 15px;
+		> span {
+			color: #fff;
+			&.text {
+				font-size: map-get($desktopFont, $h5-size);
+				cursor: pointer;
+			}
+		}
+		i {
+			margin-right: 10px;
+		}
+	}
+}
+.addMessage {
+	display: grid;
+	grid-template-areas: "avatar" "textArea" "event";
+	grid-template-columns: 10% 75% auto;
+	column-gap: 10px;
+	width: 100%;
+	.textAreaBox {
+		textarea {
+			width: 100%;
+			height: 80px;
+			border: none;
+			padding: 10px;
+			border-radius: 3px;
+			color: #fafafa;
+			background-color: $gray08;
+			resize: none;
+		}
+	}
+	button {
+		i {
+			svg {
+				width: 15px;
+				height: 15px;
+			}
+		}
+	}
+}
+
+.comment {
+	.totalComment {
+		font-size: map-get($desktopFont, $h6-size);
+		color: $gray03;
+		border-bottom: 1px solid $gray03;
+		padding-bottom: 10px;
+	}
+	ul {
+		width: 100%;
+		display: grid;
+		grid-template-columns: 10% auto;
+		column-gap: 10px;
+		margin-top: 10px;
+		li {
+			&.avatar {
+				display: flex;
+			}
+			&.commentWrapper {
+				display: grid;
+				grid-template-rows: auto;
+				row-gap: 10px;
+				color: $gray03;
+				.commentBox {
+					display: grid;
+					grid-template-columns: auto 20%;
+					column-gap: 10px;
+					.rightContent {
+						display: flex;
+						justify-content: flex-end;
+						.iconBox {
+							i {
+								color: $green04;
+								margin-right: 5px;
+								svg {
+									width: 15px;
+									height: 15px;
+								}
+							}
+						}
+						.text {
+							color: $green04;
+							font-size: map-get($desktopFont, $h6-size);
+						}
+					}
+				}
+				.commentBox {
+					.commentContent {
+						font-size: map-get($desktopFont, $h5-size);
+					}
+					.lattice {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						width: 22px;
+						height: 22px;
+						padding: 3px;
+						border-radius: 50%;
+						margin-right: 10px;
+						background-color: $gray08;
+						cursor: pointer;
+					}
+					.clicked {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						width: 22px;
+						height: 22px;
+						padding: 3px;
+						border-radius: 50%;
+						margin-right: 10px;
+						background-color: $gray08;
+						cursor: pointer;
+						background-color: $blue06;
+					}
+					.number {
+						font-size: map-get($desktopFont, $h5-size);
+					}
+				}
+				.feedback {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					flex-direction: column;
+					.feedbackEvent {
+						width: 100%;
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+						margin-bottom: 15px;
+						.feedbackText {
+							color: $green04;
+							font-size: map-get($desktopFont, $h6-size);
+							@extend .text;
+							cursor: pointer;
+						}
+					}
+				}
+			}
+		}
 	}
 }

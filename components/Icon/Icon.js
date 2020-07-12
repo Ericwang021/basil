@@ -6,6 +6,9 @@ import { book } from "react-icons-kit/icomoon/book";
 import { ic_feedback } from "react-icons-kit/md/ic_feedback";
 import { ic_search } from "react-icons-kit/md/ic_search";
 import { ic_close } from "react-icons-kit/md/ic_close";
+import { ic_send } from "react-icons-kit/md/ic_send";
+import { ic_add_circle } from "react-icons-kit/md/ic_add_circle";
+import { ic_check_circle } from "react-icons-kit/md/ic_check_circle";
 
 const IconContainer = withBaseIcon({ size: 24 });
 export const IconLan = () => <IconContainer icon={ic_language} />;
@@ -14,3 +17,6 @@ export const IconBook = () => <IconContainer icon={book} />;
 export const IconFeedBack = () => <IconContainer icon={ic_feedback} />;
 export const IconSearch = () => <IconContainer icon={ic_search} />;
 export const IconClose = () => <IconContainer icon={ic_close} />;
+export const IconSend = () => <IconContainer icon={ic_send} />;
+export const IconAdd = () => <IconContainer icon={ic_add_circle} />;
+export const IconCheckCircle = () => <IconContainer icon={ic_check_circle} />;

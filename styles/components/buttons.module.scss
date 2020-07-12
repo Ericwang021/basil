@@ -1,0 +1,25 @@
+@import "../global/color";
+@import "../global/typeFont";
+
+@mixin iconButton($width, $height, $color) {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: $width;
+	height: $height;
+	padding: 12px;
+	color: $color;
+	border-radius: 50%;
+	transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	background-color: transparent;
+	&:hover {
+		background-color: rgba(255, 255, 255, 0.15);
+	}
+}
+
+.iconButtonSm {
+	@include iconButton(30px, 30px, #fff);
+}

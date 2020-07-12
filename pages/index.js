@@ -11,10 +11,11 @@ const Index = () => {
 	return (
 		<div className="index">
 			<ClassInfoBox />
-			<div className="videoBoxWrapper">
+			<section className="videoBoxWrapper">
 				<VideoBox />
 				<InformationBox />
-			</div>
+			</section>
+			<section className="classDetail"></section>
 		</div>
 	);
 };

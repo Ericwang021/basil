@@ -6,7 +6,7 @@ footer {
 	background-color: $gray08;
 	.footer-inner {
 		width: 100%;
-		padding: 10px 40px;
+		padding: 10px 24px;
 		display: flex;
 		align-items: flex-end;
 		> ul {
@@ -17,7 +17,7 @@ footer {
 			li {
 				margin-right: 15px;
 				border-right: 1px solid #585858;
-				padding-right: 5px;
+				padding-right: 10px;
 				color: #ececec;
 				&:last-child {
 					margin-right: 0;

@@ -10,6 +10,7 @@ const VideoBox = () => {
 					playing={false}
 					controls={true}
 					width={"100%"}
+					height={"600px"}
 				/>
 			</div>
 			<div className="playController">
