@@ -10,9 +10,11 @@ const Layout = (props) => {
 		<Fragment>
 			<CssBaseline />
 			<Header />
-			<Container maxWidth="false" className={styles.containerBackground}>
-				<main>{props.children}</main>
-			</Container>
+			<div className={styles.container}>
+				<Container maxWidth="lg" className={styles.containerBackground}>
+					<main>{props.children}</main>
+				</Container>
+			</div>
 			<Footer />
 		</Fragment>
 	);

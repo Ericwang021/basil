@@ -1,0 +1,34 @@
+@import "../../styles/global/color";
+@import "../../styles/global/typeFont.scss";
+
+.classBoxWrapper {
+	width: 100%;
+	.classBoxWrapperInner {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		.iconBox {
+			width: 60px;
+			height: 60px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 50%;
+			padding: 15px;
+			background-color: $blue10;
+			i {
+				color: $gray03;
+			}
+		}
+		.wrapperTitle {
+			margin-left: 10px;
+			> ul {
+				li {
+					font-size: map-get($desktopFont, $h5-size);
+					color: $gray03;
+					line-height: 1.6em;
+				}
+			}
+		}
+	}
+}
