@@ -26,20 +26,6 @@ const Index = () => {
 					<ShareWrapper />
 					<AboutClass />
 				</div>
-				<Registered />
-			</section>
-			<section className="Syllabus">
-				<div className={commonStyles.sectionTitle}>課程綱要</div>
-				<CardVideo />
-			</section>
-			<section className="teacher">
-				<div className={commonStyles.sectionTitle}>講師</div>
-				<div className="teacher-inner">
-					<CardTeacher />
-					<CardTeacher />
-					<CardTeacher />
-					<CardTeacher />
-				</div>
 			</section>
 		</div>
 	);
