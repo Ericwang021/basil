@@ -17,4 +17,20 @@
 		grid-template-rows: 3fr;
 		margin-top: 15px;
 	}
+	.Syllabus {
+		margin-top: 35px;
+	}
+	.teacher {
+		width: 100%;
+		margin-top: 30px;
+		.teacher-inner {
+			max-width: 960px;
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: repeat(2, auto);
+			column-gap: 15px;
+			row-gap: 15px;
+			margin: 0 auto;
+		}
+	}
 }

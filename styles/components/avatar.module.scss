@@ -25,3 +25,7 @@
 .avatarLg {
 	@include avatar(40px, 40px);
 }
+
+.avatarXl {
+	@include avatar(60px, 60px, map-get($desktopFont, $h2-size));
+}

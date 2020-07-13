@@ -1,0 +1,93 @@
+@import "../../styles/global/_color.scss";
+@import "../../styles/global/typeFont.scss";
+
+.CardVideo {
+	position: relative;
+	display: grid;
+	grid-template-columns: 7% auto;
+	column-gap: 15px;
+	&:first-child {
+		margin-top: 25px;
+	}
+	&:last-child {
+		&:after {
+			border: none;
+		}
+	}
+	&:after {
+		content: "";
+		display: block;
+		width: 30px;
+		height: calc(100% - 70px);
+		border-right: 3px solid #fafafa;
+		position: absolute;
+		bottom: 0;
+		left: 6px;
+	}
+}
+.progress {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	border: 3px solid $gray03;
+	padding: 20px;
+
+	.progressText {
+		font-size: map-get($desktopFont, $h3-size);
+		font-weight: $font-weight-bold;
+		color: $gray03;
+	}
+}
+.cardContent {
+	.title {
+		font-size: map-get($desktopFont, $h3-size);
+		color: $gray03;
+		font-weight: $font-weight-bold;
+	}
+	.cardVideoList {
+		display: grid;
+		align-items: center;
+		grid-template-columns: 3% 23% auto;
+		column-gap: 5px;
+		margin-top: 15px;
+		> li {
+			i {
+				color: $gray03;
+				svg {
+					width: 24px;
+					height: 24px;
+				}
+			}
+			&.videoBox {
+				position: relative;
+
+				.lock {
+					position: absolute;
+					top: 0;
+					left: 0;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					width: 250px;
+					height: 100%;
+					background-color: rgba(0, 0, 0, 0.5);
+				}
+				img {
+					width: 250px;
+				}
+			}
+		}
+		.videoTitle {
+			font-size: map-get($desktopFont, $h2-size);
+			color: $gray03;
+		}
+		.videoTime {
+			font-size: map-get($desktopFont, $h5-size);
+			color: $gray03;
+		}
+	}
+}
