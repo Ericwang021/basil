@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./VideoBox.module.scss";
 import ReactPlayer from "react-player/youtube";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+
 const VideoBox = () => {
 	return (
 		<div className="videoWrapper">
@@ -18,15 +20,17 @@ const VideoBox = () => {
 					<div className="bar"></div>
 					<div className="ball"></div>
 				</div>
+				<ul>
+					<li>
+						<PlayArrowIcon fontSize="large" style={{ color: "#fff" }} />
+					</li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
 			</div>
-			<ul>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-			</ul>
 		</div>
 	);
 };
