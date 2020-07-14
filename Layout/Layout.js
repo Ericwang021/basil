@@ -6,6 +6,7 @@ import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
+import ClassInfoBox from "../components/ClassInfoBox/ClassInfoBox";
 
 const Layout = (props) => {
 	return (
@@ -19,11 +20,11 @@ const Layout = (props) => {
 			<CssBaseline />
 			<Header />
 			<div className={styles.container}>
+				<ClassInfoBox title={"Learn with Academy - Academy Tutorial"} />
 				<Container maxWidth="false" className={styles.containerBackground}>
 					<main>{props.children}</main>
 				</Container>
 			</div>
-			<Footer />
 		</Fragment>
 	);
 };

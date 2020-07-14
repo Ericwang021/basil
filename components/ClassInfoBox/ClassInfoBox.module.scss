@@ -3,28 +3,20 @@
 
 .classBoxWrapper {
 	width: 100%;
+	height: 100%;
+	border-bottom: 2px solid rgba(250, 250, 250, 0.1);
+	padding-bottom: 15px;
+	margin-bottom: 20px;
 	.classBoxWrapperInner {
 		width: 100%;
 		display: flex;
 		align-items: center;
-		.iconBox {
-			width: 60px;
-			height: 60px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			border-radius: 50%;
-			padding: 15px;
-			background-color: $blue10;
-			i {
-				color: $gray03;
-			}
-		}
+		padding: 0 24px;
 		.wrapperTitle {
-			margin-left: 10px;
 			> ul {
 				li {
-					font-size: map-get($desktopFont, $h5-size);
+					font-size: map-get($desktopFont, $h2-size);
+					font-weight: $font-weight-bold;
 					color: $gray03;
 					line-height: 1.6em;
 				}

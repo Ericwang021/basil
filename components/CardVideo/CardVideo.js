@@ -18,7 +18,7 @@ const CardVideo = () => {
 						<div className={styles.lock}>
 							<IconLock />{" "}
 						</div>
-						<img src="../../static/video-short.png" alt="" />
+						<img src="../../public/static/video-short.png" alt="" />
 					</li>
 					<li>
 						<div className={styles.videoTitle}>
