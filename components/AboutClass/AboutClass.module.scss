@@ -4,14 +4,14 @@
 
 .aboutClassWrapper {
 	width: 100%;
-	background-color: $blue10;
+	background-color: $gray03;
 	border-radius: 5px;
-	box-shadow: $box-shadow-medium;
+	box-shadow: $box-shadow;
 	margin: 15px 0;
 	.wrapperInner {
 		padding: 15px 20px;
 		> div {
-			color: $gray03;
+			color: $gray07;
 			&.title {
 				font-size: map-get($desktopFont, $h4-size);
 				font-weight: $font-weight-bold;
@@ -29,7 +29,7 @@
 	width: 100%;
 	.title {
 		font-size: map-get($desktopFont, $h4-size);
-		color: $gray03;
+		color: $gray07;
 		font-weight: $font-weight-bold;
 	}
 	> ul {

@@ -27,7 +27,7 @@ const Header = () => {
 				</nav>
 				<div className="person-box">
 					<IconButton>
-						<LanguageIcon fontSize="large" style={{ color: "#fff" }} />
+						<LanguageIcon fontSize="large" />
 					</IconButton>
 					<div className={avatarStyle.avatarMl}>E</div>
 				</div>

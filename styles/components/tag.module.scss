@@ -1,10 +1,6 @@
 @import "../global/color";
 
-@mixin tagTemplate(
-	$fontSize: 14px,
-	$color: $gray08,
-	$backgroundColor: $gray03
-) {
+@mixin tagTemplate($fontSize: 14px, $color: $gray03, $backgroundColor: $gray07) {
 	font-size: $fontSize;
 	text-align: center;
 	padding: 5px 10px;

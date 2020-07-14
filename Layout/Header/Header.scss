@@ -3,8 +3,8 @@
 
 .header {
 	width: 100wh;
-	background-color: $gray08;
-	border-bottom: 3px solid $gray03;
+	background-color: $gray03;
+	border-bottom: 3px solid $gray05;
 	.header-inner {
 		width: 100%;
 		display: grid;
@@ -23,7 +23,7 @@
 				font-size: map-get($desktopFont, $h3-size);
 				font-weight: $font-weight-bold;
 				margin-left: 10px;
-				color: #fff;
+				color: $gray08;
 			}
 		}
 		nav {
@@ -38,9 +38,9 @@
 					> a {
 						font-size: map-get($desktopFont, $h3-size);
 						font-weight: $font-weight-bold;
-						color: #fff;
+						color: $gray07;
 						&:hover {
-							color: $green04;
+							color: $blue05;
 						}
 					}
 				}
