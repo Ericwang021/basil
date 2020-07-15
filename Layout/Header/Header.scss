@@ -2,9 +2,15 @@
 @import "../../styles/global/color";
 
 .header {
-	width: 100wh;
+	width: 100vw;
 	background-color: $gray03;
 	border-bottom: 3px solid $gray05;
+	transition: top 0.3s ease-in-out;
+	z-index: 999;
+	&.hideUp {
+		position: fixed;
+		top: 0;
+	}
 	.header-inner {
 		width: 100%;
 		display: grid;

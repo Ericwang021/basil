@@ -12,19 +12,15 @@ const Index = () => {
 	return (
 		<div className="index">
 			<Grid container spacing={2}>
-				{/* <Grid item xs={12}>
-					<ClassInfoBox />
-				</Grid> */}
 				<Grid item xs={12} sm={12} md={12} lg={8}>
 					<VideoBox />
 				</Grid>
-				<Grid item xs={12} sm={12} md={12} lg={4}>
+				<Grid item xs={12} sm={12} md={12} lg={4} style={{ padding: "0 8px" }}>
 					<InformationBox />
 				</Grid>
 				<Grid item xs={12} sm={12} md={12} lg={8}>
 					<ClassTitleWrapper />
 					<ShareWrapper />
-					<AboutClass />
 				</Grid>
 			</Grid>
 		</div>

@@ -10,7 +10,7 @@ const ClassTitleWrapper = () => {
 				<ul>
 					<li className={styles.viewer}>716 觀看</li>
 					<li>
-						<span className={tagStyles.tagGreen}>初學</span>{" "}
+						<span className={tagStyles.tagBlue}>初學</span>{" "}
 					</li>
 				</ul>
 			</div>

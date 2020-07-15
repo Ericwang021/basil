@@ -1,13 +1,12 @@
-import React from "react";
-import { IconLan } from "../../components/Icon/Icon";
 import avatarStyle from "../../styles/components/avatar.module.scss";
+import React, { useEffect, useState } from "react";
+import Logo from "../../public/static/academy-logo.svg";
 import { IconButton } from "@material-ui/core";
 import LanguageIcon from "@material-ui/icons/Language";
-import Logo from "../../public/static/academy-logo.svg";
 
 const Header = () => {
 	return (
-		<header className="header">
+		<header id="header" className={`header`}>
 			<div className="header-inner">
 				<a className="logo" href="/">
 					<div className="logo-Box">

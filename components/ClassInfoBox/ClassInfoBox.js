@@ -1,9 +1,7 @@
-import React from "react";
 import styles from "./ClassInfoBox.module.scss";
-import { IconBook, IconViewList } from "../Icon/Icon";
+import React from "react";
 
-const ClassInfoBox = (props) => {
-	const { title } = props;
+const ClassInfoBox = ({ title }) => {
 	return (
 		<div className={styles.classBoxWrapper}>
 			<div className={styles.classBoxWrapperInner}>

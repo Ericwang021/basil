@@ -1,7 +1,9 @@
-import React, { useState } from "react";
 import styles from "./InformationBox.module.scss";
 import avatarStyle from "../../styles/components/avatar.module.scss";
 import buttonStyle from "../../styles/components/buttons.module.scss";
+import React, { useState } from "react";
+import SendIcon from "@material-ui/icons/Send";
+import { IconButton } from "@material-ui/core";
 import {
 	IconFeedBack,
 	IconSearch,
@@ -13,18 +15,17 @@ import {
 } from "../Icon/Icon";
 
 const InformationBox = () => {
-	const [isShow, setIsShow] = useState(false);
-	const [isComment, setIsComment] = useState(false);
-	const [isFeedBack, setIsFeedBack] = useState(false);
-	// const [count, setCount] = useState(0);
+	const [show, setShow] = useState(false);
+	const [comment, setComment] = useState(false);
+	const [feedBack, setFeedBack] = useState(false);
 	const handleClick = () => {
-		setIsShow(!isShow);
+		setShow(!show);
 	};
 	const handleComment = () => {
-		setIsComment(!isComment);
+		setComment(!comment);
 	};
 	const handleFeedback = () => {
-		setIsFeedBack(!isFeedBack);
+		setFeedBack(!feedBack);
 	};
 
 	return (
@@ -38,17 +39,16 @@ const InformationBox = () => {
 						問題和討論
 					</div>
 					<div className={styles.searchBox}>
-						{isShow ? <input type="text" placeholder="搜尋討論" /> : null}
-						{!isShow ? (
-							<span onClick={() => handleClick()}>
-								<IconSearch />
-							</span>
-						) : null}
-						{isShow ? (
+						{show ? <input type="text" placeholder="搜尋討論" /> : null}
+						{show ? (
 							<span onClick={() => handleClick()}>
 								<IconClose />
 							</span>
-						) : null}
+						) : (
+							<span onClick={() => handleClick()}>
+								<IconSearch />
+							</span>
+						)}
 					</div>
 				</div>
 				<div className={styles.addNew}>
@@ -60,14 +60,16 @@ const InformationBox = () => {
 							新增討論
 						</span>
 					</div>
-					{isComment ? (
+					{comment ? (
 						<div className={styles.addMessage}>
 							<div className={avatarStyle.avatarMl}>E</div>
 							<div className={styles.textAreaBox}>
 								<textarea placeholder="新增回覆" />
 							</div>
 							<button className={buttonStyle.iconButtonSm || styles.button}>
-								<IconSend />
+								<IconButton>
+									<SendIcon fontSize="small" />
+								</IconButton>
 							</button>
 						</div>
 					) : null}
@@ -98,7 +100,7 @@ const InformationBox = () => {
 							</div>
 							<div className={styles.feedback}>
 								<div className={styles.feedbackEvent}>
-									<div className={avatarStyle.avatarSm || styles.avatar}>E</div>
+									<div className={avatarStyle.avatarSm || styles.avatar}>A</div>
 									<div
 										className={styles.feedbackText}
 										onClick={() => handleFeedback()}
@@ -106,17 +108,17 @@ const InformationBox = () => {
 										回覆
 									</div>
 								</div>
-								{isFeedBack ? (
+								{feedBack ? (
 									<div className={styles.addMessage}>
-										<div className={avatarStyle.avatarMl}>A</div>
+										<div className={avatarStyle.avatarMl}>E</div>
 										<div className={styles.textAreaBox}>
 											<textarea placeholder="新增回覆" />
 										</div>
-										<button
-											className={buttonStyle.iconButtonSm || styles.button}
-										>
-											<IconSend />
-										</button>
+										<div>
+											<IconButton>
+												<SendIcon fontSize="small" />
+											</IconButton>
+										</div>
 									</div>
 								) : null}
 							</div>

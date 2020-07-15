@@ -1,6 +1,6 @@
-import Reac, { Fragment } from "react";
 import styles from "./AboutClass.module.scss";
 import tagStyles from "../../styles/components/tag.module.scss";
+import React, { Fragment } from "react";
 
 const AboutClass = () => {
 	return (
