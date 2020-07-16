@@ -12,7 +12,7 @@
 		"type": "git",
 		"url": "git+https://github.com/Ericwang021/basil.git"
 	},
-	"author": "Eric",
+	"author": "EricWang",
 	"license": "ISC",
 	"dependencies": {
 		"@material-ui/core": "^4.11.0",
