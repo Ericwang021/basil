@@ -1,50 +1,37 @@
-import React, { useState, useContext } from "react";
-import Layout from "../Layout/Layout";
-import VideoBox from "../components/VideoBox/VideoBox";
+import React, { useState } from "react";
+// import Layout from "../Layout/Layout";
 import CommentBox from "../components/CommentBox/CommentBox";
 import ClassTitleWrapper from "../components/ClassTitleWrapper/ClassTitleWrapper";
+import VideoBox from "../components/VideoBox/VideoBox";
 import ShareWrapper from "../components/ShareWrapper/ShareWrapper";
 import Grid from "@material-ui/core/Grid";
-import { Provider } from "../components/context";
+import { defaultDiscussionList, Provider } from "../components/context";
 
 const Index = () => {
-	const generateDiscussionList = {
-		discussionList: [
-			{
-				record: {
-					name: "Stanley",
-					date: "2020/07/16",
-					content: "goood!",
-					reply: [
-						{
-							record: {
-								name: "Trump",
-								date: "2020/07/17",
-								content: "oh ya is good!",
-							},
-						},
-					],
-				},
-			},
-		],
+	const [discussionList, setDiscussionList] = useState([
+		...defaultDiscussionList,
+	]);
+	const commentContext = {
+		discussionList,
+		setDiscussionList,
 	};
 	return (
-		<div className="index">
-			<Grid container spacing={2}>
-				<Grid item xs={12} sm={12} md={12} lg={8}>
-					<VideoBox />
-				</Grid>
-				<Grid item xs={12} sm={12} md={12} lg={4} style={{ padding: "0 8px" }}>
-					<Provider value={generateDiscussionList}>
+		<Provider value={commentContext}>
+			<div className="index">
+				<Grid container spacing={12}>
+					<Grid item lg={8}>
+						<VideoBox />
+					</Grid>
+					<Grid item lg={4}>
 						<CommentBox />
-					</Provider>
+					</Grid>
+					<Grid item lg={8}>
+						<ClassTitleWrapper />
+						<ShareWrapper />
+					</Grid>
 				</Grid>
-				<Grid item xs={12} sm={12} md={12} lg={8}>
-					<ClassTitleWrapper />
-					<ShareWrapper />
-				</Grid>
-			</Grid>
-		</div>
+			</div>
+		</Provider>
 	);
 };
 

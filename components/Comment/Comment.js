@@ -1,12 +1,15 @@
-import styles from "./Comment.module.scss";
 import avatarStyle from "../../styles/components/avatar.module.scss";
-import React, { useState } from "react";
-import { IconCheckCircle } from "../Icon/Icon";
-import CommentForm from "../CommentForm/CommentForm";
+import styles from "./Comment.module.scss";
+import React, { useState, useContext } from "react";
 import CommentReply from "../CommentReply/CommentReply";
+import CommentReplyForm from "../CommentReplyForm/CommentReplyForm";
+import context from "../context";
 
-const Comment = ({ discussionData }) => {
-	const { content, date, name, reply } = discussionData.record;
+const Comment = ({ discussion }) => {
+	console.log(discussion, "discussion");
+	const { record } = discussion;
+	const { name, content, date, reply } = record;
+	const [replyComment, setReplyComment] = useState(false);
 
 	return (
 		<div className={styles.comment}>
@@ -17,12 +20,6 @@ const Comment = ({ discussionData }) => {
 						<div>{name}</div>
 						<div>{date}</div>
 					</div>
-					<div className={styles.rightContent}>
-						<span className={styles.iconBox}>
-							<IconCheckCircle />
-						</span>
-						<span className={styles.text}>已解決</span>
-					</div>
 				</div>
 				<div className={styles.commentBox}>
 					<span className={styles.commentContent}>{content}</span>
@@ -31,9 +28,22 @@ const Comment = ({ discussionData }) => {
 						<span className={styles.number}>0</span>
 					</div>
 				</div>
-				{reply.map((item, i) => (
-					<CommentReply replyData={item} index={i} />
-				))}
+				{reply.map((reply, index) => {
+					return (
+						<CommentReply key={`reply${index}`} reply={reply} index={index} />
+					);
+				})}
+				<div className={styles.replyCommentBox}>
+					<div className={avatarStyle.avatarSm}>{name.substring(0, 1)}</div>
+					<div
+						className={styles.feedbackText}
+						onClick={() => setReplyComment(!replyComment)}
+					>
+						回覆
+					</div>
+				</div>
+
+				{replyComment ? <CommentReplyForm /> : null}
 			</div>
 		</div>
 	);

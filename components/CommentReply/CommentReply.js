@@ -1,31 +1,27 @@
-import styles from "./CommentReply.module.scss";
 import avatarStyle from "../../styles/components/avatar.module.scss";
-import React, { useState } from "react";
-import CommentForm from "../CommentForm/CommentForm";
+import styles from "./CommentReply.module.scss";
+import React, { useState, useContext } from "react";
+import context from "../context";
 
-const CommentReply = ({ replyData }) => {
-	const { content, date, name } = replyData.record;
-	const [feedBack, setFeedBack] = useState(false);
-	const handleFeedback = () => {
-		setFeedBack(!feedBack);
-	};
-
+const CommentReply = ({ replyItem }) => {
+	console.log(replyItem, "replyItem");
+	const { content, date, name } = "";
 	return (
 		<div className={styles.feedback}>
 			<div className={styles.feedbackEvent}>
-				<div className={avatarStyle.avatarSm}>{name.substring(0, 1)}</div>
+				{name ? (
+					<div className={avatarStyle.avatarSm}>{name.substring(0, 1)}</div>
+				) : null}
 				<div>
 					<div className={styles.nameText}>
-						<div>{name}</div>
-						<div>{date}</div>
+						{name ? <div>{name}</div> : null}
+						{date ? <div>{date}</div> : null}
 					</div>
-					<div className={styles.replyContent}>{content}</div>
-					<div className={styles.feedbackText} onClick={() => handleFeedback()}>
-						回覆
-					</div>
+					{content ? (
+						<div className={styles.replyContent}>{content}</div>
+					) : null}
 				</div>
 			</div>
-			{feedBack ? <CommentForm /> : null}
 		</div>
 	);
 };

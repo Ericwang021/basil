@@ -1,39 +1,39 @@
-import styles from "./CommentForm.module.scss";
+import React, { useContext, useState } from "react";
 import avatarStyle from "../../styles/components/avatar.module.scss";
 import buttonStyle from "../../styles/components/buttons.module.scss";
-import React, { useContext, useState } from "react";
+import styles from "./CommentForm.module.scss";
+import context from "../context";
 import SendIcon from "@material-ui/icons/Send";
 import { IconButton } from "@material-ui/core";
-import context from "../context";
 
-const CommentForm = () => {
+const CommentForm = ({ setShowComment }) => {
 	const contextValue = useContext(context);
-	const { handelCommentSubmit } = contextValue;
-	const [replyValue, setReplyValue] = useState("");
+	const { discussionList, setDiscussionList } = contextValue;
+	const [comment, setComment] = useState("");
 
-	const handleChange = (e) => {
-		setReplyValue(e.target.value);
-	};
-
-	const handleSubmit = (event) => {
+	const commentSubmit = (event) => {
 		event.preventDefault();
-		const value = replyValue;
-		const content = value;
-		const name = "TestName";
-		const date = "2020/07/16";
-		const reply = [];
-		handelCommentSubmit({ record: { content, date, name, reply } });
+		const commentItem = {
+			record: {
+				name: "Eric",
+				date: "new Date()",
+				content: comment,
+				goodCount: 0,
+				reply: [],
+			},
+		};
+		setDiscussionList([commentItem, ...discussionList]);
+		setShowComment(false);
+	};
+	const changeComment = (event) => {
+		setComment(event.target.value);
 	};
 	return (
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={commentSubmit}>
 			<div className={styles.addMessage}>
 				<div className={avatarStyle.avatarMl}>E</div>
 				<div className={styles.textAreaBox}>
-					<textarea
-						value={replyValue}
-						onChange={(e) => handleChange(e)}
-						placeholder="新增回覆"
-					/>
+					<textarea placeholder="新增回覆" onChange={changeComment} />
 				</div>
 				<button className={buttonStyle.iconButtonSm}>
 					<IconButton>

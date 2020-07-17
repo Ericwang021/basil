@@ -1,7 +1,7 @@
+import avatarStyle from "../../styles/components/avatar.module.scss";
 import React from "react";
 import styles from "./ShareWrapper.module.scss";
-import avatarStyle from "../../styles/components/avatar.module.scss";
-import { IconThumbUpOutline, IconThumbUp, IconShare } from "../Icon/Icon";
+import { IconThumbUpOutline, IconShare } from "../Icon/Icon";
 
 const ShareWrapper = () => {
 	return (
