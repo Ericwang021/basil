@@ -62,7 +62,9 @@
                         color: $blue06;
                         font-size: map-get($desktopFont, $h6-size);
                         cursor: pointer;
-                        padding-right: 20px;
+                        &:first-child {
+                            padding-right: 20px;
+                        }
                     }
                 }
             }

@@ -1,4 +1,5 @@
 import avatarStyle from '../../../styles/components/avatar.module.scss';
+import commonStyle from '../../../styles/components/common.module.scss';
 import styles from './CommentItem.module.scss';
 import React, { useState } from 'react';
 import ReplyList from '../ReplyList/ReplyList';
@@ -10,7 +11,7 @@ const Comment = ({ discussion }) => {
     const [replyComment, setReplyComment] = useState(false);
     const [clickedAddOne, setClickedAddOne] = useState(false);
     const [clickedGoodCount, setClickedGoodCount] = useState(goodCount);
-
+    const [editInput, setEditInput] = useState(false);
     const clickedLattice = () => {
         !clickedAddOne
             ? setClickedGoodCount(clickedGoodCount + 1)
@@ -28,7 +29,20 @@ const Comment = ({ discussion }) => {
                     </div>
                 </div>
                 <div className={styles.commentBox}>
-                    <span className={styles.commentContent}>{content}</span>
+                    <div className="contentBox">
+                        {editInput ? (
+                            <input
+                                className={commonStyle.input}
+                                type="text"
+                                value={content}
+                            />
+                        ) : (
+                            <span className={styles.commentContent}>
+                                {content}
+                            </span>
+                        )}
+                    </div>
+
                     <div className={styles.rightContent}>
                         <span
                             className={
@@ -42,8 +56,10 @@ const Comment = ({ discussion }) => {
                         </span>
                     </div>
                     <div className={styles.editDelete}>
-                        <div className={styles.edit}>編輯</div>
-                        <div className={styles.delete}>刪除</div>
+                        <div onClick={() => setEditInput(!editInput)}>
+                            {`${editInput ? '取消' : '編輯'}`}
+                        </div>
+                        {editInput ? <div>儲存</div> : <div>刪除</div>}
                     </div>
                 </div>
                 {reply.map((reply, index) => {
