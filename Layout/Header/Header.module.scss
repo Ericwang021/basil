@@ -1,5 +1,5 @@
-@import '../../styles/global/typeFont.scss';
-@import '../../styles/global/color';
+@import "../../styles/global/typeFont.scss";
+@import "../../styles/global/color";
 
 .header {
     width: 100vw;
@@ -10,7 +10,7 @@
         width: 100%;
         display: grid;
         align-items: center;
-        grid-template-columns: 15% auto 10%;
+        grid-template-columns: fit-content(10%) auto fit-content(10%);
         column-gap: 30px;
         padding: 10px 24px;
         > a {
