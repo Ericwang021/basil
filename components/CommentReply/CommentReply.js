@@ -3,9 +3,9 @@ import styles from "./CommentReply.module.scss";
 import React, { useState, useContext } from "react";
 import context from "../context";
 
-const CommentReply = ({ replyItem }) => {
-	console.log(replyItem, "replyItem");
-	const { content, date, name } = "";
+const CommentReply = ({ reply }) => {
+	console.log(reply, "reply");
+	const { content, date, name } = reply;
 	return (
 		<div className={styles.feedback}>
 			<div className={styles.feedbackEvent}>

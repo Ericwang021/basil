@@ -6,30 +6,35 @@ import SendIcon from "@material-ui/icons/Send";
 import { IconButton } from "@material-ui/core";
 import context from "../context";
 
-const CommentReplyForm = () => {
+const CommentReplyForm = ({ setReplyComment }) => {
 	const contextValue = useContext(context);
-	const { handleReplyCommentSubmit } = contextValue;
-	const [replyValue, setReplyValue] = useState("");
+	const { discussionList, setDiscussionList } = contextValue;
+	const [replyCommentValue, setReplyCommentValue] = useState("");
 
-	const handleChange = (event) => {
-		setReplyValue(event.target.value);
-	};
-
-	const handleSubmit = (event) => {
+	const replyCommentSubmit = (event) => {
 		event.preventDefault();
-		const content = replyValue;
-		const name = "REPLYName";
-		const date = "2020/07/17";
-		handleReplyCommentSubmit({ record: { name, date, content } });
+		const replyCommentItem = {
+			replyRecord: {
+				name: "REPLYName",
+				date: "2020/07/17",
+				content: replyCommentValue,
+				goodCount: 0,
+			},
+		};
+		setDiscussionList([replyCommentItem, ...discussionList]);
+		setReplyComment(false);
+	};
+	const changeReplyComment = (event) => {
+		setReplyCommentValue(event.target.value);
 	};
 	return (
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={replyCommentSubmit}>
 			<div className={styles.addMessage}>
 				<div className={avatarStyle.avatarMl}>E</div>
 				<div className={styles.textAreaBox}>
 					<textarea
-						value={replyValue}
-						onChange={handleChange}
+						value={replyCommentValue}
+						onChange={changeReplyComment}
 						placeholder="新增回覆"
 					/>
 				</div>

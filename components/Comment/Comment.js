@@ -8,7 +8,7 @@ import context from "../context";
 const Comment = ({ discussion }) => {
 	console.log(discussion, "discussion");
 	const { record } = discussion;
-	const { name, content, date, reply } = record;
+	const { name, content, date, goodCount, reply } = record;
 	const [replyComment, setReplyComment] = useState(false);
 
 	return (
@@ -25,7 +25,7 @@ const Comment = ({ discussion }) => {
 					<span className={styles.commentContent}>{content}</span>
 					<div className={styles.rightContent}>
 						<span className={styles.lattice}>+1</span>
-						<span className={styles.number}>0</span>
+						<span className={styles.number}>{goodCount}</span>
 					</div>
 				</div>
 				{reply.map((reply, index) => {
@@ -43,7 +43,9 @@ const Comment = ({ discussion }) => {
 					</div>
 				</div>
 
-				{replyComment ? <CommentReplyForm /> : null}
+				{replyComment ? (
+					<CommentReplyForm setReplyComment={setReplyComment} />
+				) : null}
 			</div>
 		</div>
 	);

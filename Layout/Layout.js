@@ -21,7 +21,7 @@ const Layout = (props) => {
 			<Header />
 			<div className={styles.container}>
 				<ClassInfoBox title={"Learn with Academy - Academy Tutorial"} />
-				<Container maxWidth="false" className={styles.containerBackground}>
+				<Container maxWidth="1920" className={styles.containerBackground}>
 					<main>{props.children}</main>
 				</Container>
 			</div>

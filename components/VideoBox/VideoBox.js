@@ -18,8 +18,8 @@ const VideoBox = () => {
 		setUnfold(!unFold);
 	};
 	return (
-		<Grid container spacing={2} className={styles.videoWrapper}>
-			<Grid xs={12} className="videoPlayBox">
+		<div className={styles.videoWrapper}>
+			<div className="videoPlayBox">
 				<ReactPlayer
 					url="https://youtu.be/xjadNS2HBpM"
 					className="player"
@@ -30,8 +30,8 @@ const VideoBox = () => {
 					volume={1}
 					muted={false}
 				/>
-			</Grid>
-			<Grid container spacing={2} className={styles.playController}>
+			</div>
+			<div className={styles.playController}>
 				<div className={styles.playAndVolume}>
 					<Grid item xs>
 						<IconButton style={{ color: "#fff" }}>
@@ -55,7 +55,7 @@ const VideoBox = () => {
 						<CropFreeIcon fontSize="large" style={{ color: "#fff" }} />
 					</IconButton>
 				</div>
-			</Grid>
+			</div>
 			<div className={styles.videoMarker}>
 				<ul onMouseOver={handleOnMouseOver}>
 					<li className={styles.signup}></li>
@@ -72,7 +72,7 @@ const VideoBox = () => {
 					</ul>
 				) : null}
 			</div>
-		</Grid>
+		</div>
 	);
 };
 
