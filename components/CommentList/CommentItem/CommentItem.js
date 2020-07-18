@@ -13,6 +13,7 @@ const CommentItem = ({ discussion, deletedCommentItem, index }) => {
     const [clickedGoodCount, setClickedGoodCount] = useState(goodCount);
     const [showEditInput, setShowEditInput] = useState(false);
     const [editValue, setEditValue] = useState(content);
+
     const clickedLattice = () => {
         !clickedAddOne
             ? setClickedGoodCount(clickedGoodCount + 1)
@@ -21,6 +22,10 @@ const CommentItem = ({ discussion, deletedCommentItem, index }) => {
     };
     const handleEditChange = (event) => {
         setEditValue(event.target.value);
+    };
+    console.log(record, 'record');
+    const handleSaveChange = () => {
+        setShowEditInput(!showEditInput);
     };
     return (
         <div className={commentDiscussStyles.comment}>
@@ -44,7 +49,7 @@ const CommentItem = ({ discussion, deletedCommentItem, index }) => {
                         ) : (
                             <span
                                 className={commentDiscussStyles.commentContent}>
-                                {content}
+                                {editValue ? editValue : content}
                             </span>
                         )}
                     </div>
@@ -67,7 +72,7 @@ const CommentItem = ({ discussion, deletedCommentItem, index }) => {
                             {`${showEditInput ? '取消' : '編輯'}`}
                         </div>
                         {showEditInput ? (
-                            <div>儲存</div>
+                            <div onClick={handleSaveChange}>儲存</div>
                         ) : (
                             <div onClick={() => deletedCommentItem(index + 1)}>
                                 刪除
