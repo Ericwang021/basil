@@ -1,6 +1,6 @@
 import avatarStyle from "../../../styles/components/avatar.module.scss";
 import buttonStyle from "../../../styles/components/buttons.module.scss";
-import styles from "./CommentReplyForm.module.scss";
+import styles from "./ReplyRecordForm.module.scss";
 import React, { useState, useContext } from "react";
 import context from "../../context";
 import SendIcon from "@material-ui/icons/Send";

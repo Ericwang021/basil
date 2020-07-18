@@ -1,15 +1,23 @@
 import avatarStyle from "../../../styles/components/avatar.module.scss";
 import styles from "./Comment.module.scss";
 import React, { useState } from "react";
-import CommentReply from "../CommentReply/CommentReply";
-import CommentReplyForm from "../CommentReplyForm/CommentReplyForm";
+import ReplyRecord from "../ReplyRecord/ReplyRecord";
+import ReplyRecordForm from "../ReplyRecordForm/ReplyRecordForm";
 
 const Comment = ({ discussion }) => {
 	console.log(discussion, "discussion");
 	const { record } = discussion;
 	const { name, content, date, goodCount, reply } = record;
 	const [replyComment, setReplyComment] = useState(false);
+	const [clickedAddOne, setClickedAddOne] = useState(false);
+	const [clickedGoodCount, setClickedGoodCount] = useState(goodCount);
 
+	const clickedLattice = () => {
+		!clickedAddOne
+			? setClickedGoodCount(clickedGoodCount + 1)
+			: setClickedGoodCount(clickedGoodCount - 1);
+		setClickedAddOne(!clickedAddOne);
+	};
 	return (
 		<div className={styles.comment}>
 			<div className={avatarStyle.avatarMl}>{name.substring(0, 1)}</div>
@@ -23,13 +31,18 @@ const Comment = ({ discussion }) => {
 				<div className={styles.commentBox}>
 					<span className={styles.commentContent}>{content}</span>
 					<div className={styles.rightContent}>
-						<span className={styles.lattice}>+1</span>
-						<span className={styles.number}>{goodCount}</span>
+						<span
+							className={clickedAddOne ? styles.lattice : styles.clicked}
+							onClick={clickedLattice}
+						>
+							+1
+						</span>
+						<span className={styles.number}>{clickedGoodCount}</span>
 					</div>
 				</div>
 				{reply.map((reply, index) => {
 					return (
-						<CommentReply key={`reply${index}`} reply={reply} index={index} />
+						<ReplyRecord key={`reply${index}`} reply={reply} index={index} />
 					);
 				})}
 				<div className={styles.replyCommentBox}>
@@ -43,7 +56,7 @@ const Comment = ({ discussion }) => {
 				</div>
 
 				{replyComment ? (
-					<CommentReplyForm setReplyComment={setReplyComment} />
+					<ReplyRecordForm setReplyComment={setReplyComment} />
 				) : null}
 			</div>
 		</div>

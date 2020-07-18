@@ -32,13 +32,11 @@ const InformationBox = () => {
 				</div>
 				<div className={styles.addNew}>
 					<div className={styles.addNewBox}>
-						<span>
-							<IconAdd />
-						</span>
 						<span
 							className={styles.text}
 							onClick={() => setShowComment(!showComment)}
 						>
+							<IconAdd />
 							新增討論
 						</span>
 					</div>

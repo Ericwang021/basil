@@ -1,5 +1,5 @@
 import avatarStyle from "../../../styles/components/avatar.module.scss";
-import styles from "./CommentReply.module.scss";
+import styles from "./ReplyRecord.module.scss";
 import React from "react";
 
 const CommentReply = ({ reply }) => {
