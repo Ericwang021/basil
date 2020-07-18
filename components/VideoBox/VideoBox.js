@@ -11,8 +11,7 @@ import { Grid, IconButton, Slider } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const VideoBox = () => {
-	const [slideValue, setSlideValue] = React.useState(30);
-	const [unFold, setUnfold] = useState(false);
+	const [slideValue, setSlideValue] = React.useState(90);
 	const useStyles = makeStyles(() => ({
 		root: {
 			"& > svg": {
@@ -24,10 +23,6 @@ const VideoBox = () => {
 
 	const handleChange = (event, newSlideValue) => {
 		setSlideValue(newSlideValue);
-	};
-
-	const handleOnMouseOver = () => {
-		setUnfold(!unFold);
 	};
 
 	return (
@@ -74,21 +69,21 @@ const VideoBox = () => {
 					</IconButton>
 				</div>
 			</div>
-			<div className={styles.videoMarker}>
-				<ul onMouseOver={handleOnMouseOver}>
-					<li className={styles.signup}></li>
-					<li className={styles.explore}></li>
-					<li className={styles.preview}></li>
-					<li className={styles.video}></li>
+			<div className={styles.videoMark}>
+				<ul>
+					<li className={styles.signUp}>
+						<span>Signup</span>
+					</li>
+					<li className={styles.explore}>
+						<span>Explore</span>
+					</li>
+					<li className={styles.preview}>
+						<span>Course Preview</span>
+					</li>
+					<li className={styles.video}>
+						<span>Video & Markers</span>
+					</li>
 				</ul>
-				{unFold ? (
-					<ul onMouseOut={() => setUnfold(false)} className={styles.hidden}>
-						<li className={styles.signup}>Signup</li>
-						<li className={styles.explore}>Explore</li>
-						<li className={styles.preview}>Course Preview</li>
-						<li className={styles.video}>Video & Markers</li>
-					</ul>
-				) : null}
 			</div>
 		</div>
 	);

@@ -4,7 +4,7 @@ import React from "react";
 
 const CommentReply = ({ reply }) => {
 	console.log(reply, "reply");
-	const { content, date, name } = reply;
+	const { content, date, name } = "";
 	return (
 		<div className={styles.feedback}>
 			<div className={styles.feedbackEvent}>
