@@ -32,7 +32,7 @@ const Comment = ({ discussion }) => {
 					<span className={styles.commentContent}>{content}</span>
 					<div className={styles.rightContent}>
 						<span
-							className={clickedAddOne ? styles.lattice : styles.clicked}
+							className={clickedAddOne ? styles.clicked : styles.lattice}
 							onClick={clickedLattice}
 						>
 							+1

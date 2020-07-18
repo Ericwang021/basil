@@ -1,6 +1,6 @@
 import buttonStyles from "../../styles/components/buttons.module.scss";
 import styles from "./VideoBox.module.scss";
-import React, { useState } from "react";
+import React from "react";
 import ClosedCaptionIcon from "@material-ui/icons/ClosedCaption";
 import CropFreeIcon from "@material-ui/icons/CropFree";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
