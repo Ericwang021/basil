@@ -8,6 +8,7 @@ const Index = () => {
     const [discussionList, setDiscussionList] = useState([
         ...defaultDiscussionList,
     ]);
+    const [replyDiscussion, setReplyDiscussionList] = useState([]);
     const commentContext = {
         discussionList,
         setDiscussionList,

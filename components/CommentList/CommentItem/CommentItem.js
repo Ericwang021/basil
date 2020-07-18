@@ -64,7 +64,7 @@ const Comment = ({ discussion, deletedCommentItem, index }) => {
                         {editInput ? (
                             <div>儲存</div>
                         ) : (
-                            <div onClick={() => deletedCommentItem(index)}>
+                            <div onClick={() => deletedCommentItem(index + 1)}>
                                 刪除
                             </div>
                         )}
