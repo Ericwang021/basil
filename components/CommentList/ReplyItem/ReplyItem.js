@@ -2,12 +2,11 @@ import avatarStyle from '../../../styles/components/avatar.module.scss';
 import commonStyle from '../../../styles/components/common.module.scss';
 import commentDiscussStyles from '../../../styles/components/commentDiscuss.module.scss';
 import React, { useState } from 'react';
-import ReplyList from '../ReplyList/ReplyList';
 import NewReply from '../NewReply/NewReply';
 
-const CommentItem = ({ discussion, deletedCommentItem, index }) => {
-    const { record } = discussion;
-    const { name, content, date, goodCount } = record;
+const ReplyItem = ({ replyDiscussionList }) => {
+    const { reply } = replyDiscussionList;
+    const { content, date, name, goodCount } = reply;
     const [newReplyComment, setNewReplyComment] = useState(false);
     const [clickedAddOne, setClickedAddOne] = useState(false);
     const [clickedGoodCount, setClickedGoodCount] = useState(goodCount);
@@ -85,10 +84,9 @@ const CommentItem = ({ discussion, deletedCommentItem, index }) => {
                 {newReplyComment ? (
                     <NewReply setNewReplyComment={setNewReplyComment} />
                 ) : null}
-                <ReplyList />
             </div>
         </div>
     );
 };
 
-export default CommentItem;
+export default ReplyItem;

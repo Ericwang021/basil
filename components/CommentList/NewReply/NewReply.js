@@ -7,22 +7,21 @@ import moment from 'moment';
 import SendIcon from '@material-ui/icons/Send';
 import { IconButton } from '@material-ui/core';
 
-const CommentReplyForm = ({ setNewReplyComment }) => {
+const NewReply = ({ setNewReplyComment }) => {
     const contextValue = useContext(context);
-    const { discussionList, setDiscussionList } = contextValue;
+    const { replyDiscussionList, setReplyDiscussionList } = contextValue;
     const [replyCommentValue, setReplyCommentValue] = useState('');
-
-    const { record } = discussionList[0];
-    const { reply } = record;
     const replyCommentSubmit = (event) => {
         event.preventDefault();
-        const replyCommentItem = reply.push({
-            name: 'REPLYName',
-            date: moment().format('l'),
-            content: replyCommentValue,
-            goodCount: 0,
-        });
-        setDiscussionList([replyCommentItem, ...discussionList]);
+        const replyCommentItem = {
+            reply: {
+                name: 'REPLYName',
+                date: moment().format('l'),
+                content: replyCommentValue,
+                goodCount: 0,
+            },
+        };
+        setReplyDiscussionList([replyCommentItem, ...replyDiscussionList]);
         setNewReplyComment(false);
     };
     const changeReplyComment = (event) => {
@@ -49,4 +48,4 @@ const CommentReplyForm = ({ setNewReplyComment }) => {
     );
 };
 
-export default CommentReplyForm;
+export default NewReply;

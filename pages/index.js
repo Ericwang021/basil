@@ -2,16 +2,24 @@ import React, { useState } from 'react';
 import CommentLayout from '../components/CommentLayout/CommentLayout';
 import ClassTitleWrapper from '../components/ClassTitleWrapper/ClassTitleWrapper';
 import VideoBox from '../components/VideoBox/VideoBox';
-import { defaultDiscussionList, Provider } from '../components/context';
+import {
+    defaultDiscussionList,
+    Provider,
+    defaultReplyDiscussionList,
+} from '../components/context';
 
 const Index = () => {
     const [discussionList, setDiscussionList] = useState([
         ...defaultDiscussionList,
     ]);
-    const [replyDiscussion, setReplyDiscussionList] = useState([]);
+    const [replyDiscussionList, setReplyDiscussionList] = useState([
+        ...defaultReplyDiscussionList,
+    ]);
     const commentContext = {
         discussionList,
         setDiscussionList,
+        replyDiscussionList,
+        setReplyDiscussionList,
     };
     return (
         <Provider value={commentContext}>

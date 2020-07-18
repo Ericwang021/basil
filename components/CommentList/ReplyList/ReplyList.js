@@ -1,25 +1,19 @@
-import avatarStyle from '../../../styles/components/avatar.module.scss';
-import styles from './ReplyList.module.scss';
-import React from 'react';
+import React, { useContext } from 'react';
+import ReplyItem from '../ReplyItem/ReplyItem';
+import context from '../../context';
 
-const CommentReply = ({ reply }) => {
-    const { content, date, name } = reply;
-    return (
-        <div className={styles.feedback}>
-            <div className={styles.feedbackEvent}>
-                <div className={avatarStyle.avatarSm}>
-                    {name.substring(0, 1)}
-                </div>
-                <div>
-                    <div className={styles.nameText}>
-                        <div>{name}</div>
-                        <div>{date}</div>
-                    </div>
-                    <div className={styles.replyContent}>{content}</div>
-                </div>
-            </div>
-        </div>
-    );
+const ReplyList = () => {
+    const contextValue = useContext(context);
+    const { replyDiscussionList } = contextValue;
+    return replyDiscussionList.map((replyDiscussionList, index) => {
+        return (
+            <ReplyItem
+                key={`replyDiscussionList${index}`}
+                replyDiscussionList={replyDiscussionList}
+                index={index}
+            />
+        );
+    });
 };
 
-export default CommentReply;
+export default ReplyList;

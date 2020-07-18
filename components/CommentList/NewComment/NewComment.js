@@ -7,7 +7,7 @@ import moment from 'moment';
 import SendIcon from '@material-ui/icons/Send';
 import { IconButton } from '@material-ui/core';
 
-const CommentForm = ({ setShowComment }) => {
+const NewComment = ({ setShowComment }) => {
     const contextValue = useContext(context);
     const { discussionList, setDiscussionList } = contextValue;
     const [comment, setComment] = useState('');
@@ -45,4 +45,4 @@ const CommentForm = ({ setShowComment }) => {
     );
 };
 
-export default CommentForm;
+export default NewComment;
