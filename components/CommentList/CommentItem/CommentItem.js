@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import ReplyList from '../ReplyList/ReplyList';
 import NewReply from '../NewReply/NewReply';
 
-const Comment = ({ discussion }) => {
+const Comment = ({ discussion, deletedCommentItem, index }) => {
     console.log(discussion, 'commentItem');
     const { record } = discussion;
     const { name, content, date, goodCount, reply } = record;
@@ -13,6 +13,7 @@ const Comment = ({ discussion }) => {
     const [clickedAddOne, setClickedAddOne] = useState(false);
     const [clickedGoodCount, setClickedGoodCount] = useState(goodCount);
     const [editInput, setEditInput] = useState(false);
+
     const clickedLattice = () => {
         !clickedAddOne
             ? setClickedGoodCount(clickedGoodCount + 1)
@@ -60,7 +61,13 @@ const Comment = ({ discussion }) => {
                         <div onClick={() => setEditInput(!editInput)}>
                             {`${editInput ? '取消' : '編輯'}`}
                         </div>
-                        {editInput ? <div>儲存</div> : <div>刪除</div>}
+                        {editInput ? (
+                            <div>儲存</div>
+                        ) : (
+                            <div onClick={() => deletedCommentItem(index)}>
+                                刪除
+                            </div>
+                        )}
                     </div>
                 </div>
                 {reply.map((reply, index) => {
