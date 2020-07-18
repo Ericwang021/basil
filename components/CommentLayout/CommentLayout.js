@@ -1,7 +1,7 @@
-import styles from './CommentBox.module.scss';
+import styles from './CommentLayout.module.scss';
 import React, { useState, useContext } from 'react';
 import CommentList from '../CommentList/CommentList';
-import CommentForm from '../CommentList/CommentForm/CommentForm';
+import NewComment from '../CommentList/NewComment/NewComment';
 import context from '../context';
 import { IconFeedBack, IconSearch, IconClose, IconAdd } from '../Icon/Icon';
 
@@ -40,7 +40,7 @@ const InformationBox = () => {
                         </span>
                     </div>
                     {showComment ? (
-                        <CommentForm setShowComment={setShowComment} />
+                        <NewComment setShowComment={setShowComment} />
                     ) : null}
                 </div>
                 <div className={styles.commentList}>

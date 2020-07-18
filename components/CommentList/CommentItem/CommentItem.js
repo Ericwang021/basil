@@ -1,8 +1,8 @@
 import avatarStyle from '../../../styles/components/avatar.module.scss';
-import styles from './Comment.module.scss';
+import styles from './CommentItem.module.scss';
 import React, { useState } from 'react';
-import ReplyRecord from '../ReplyRecord/ReplyRecord';
-import ReplyRecordForm from '../ReplyRecordForm/ReplyRecordForm';
+import ReplyList from '../ReplyList/ReplyList';
+import NewReply from '../NewReply/NewReply';
 
 const Comment = ({ discussion }) => {
     const { record } = discussion;
@@ -41,10 +41,14 @@ const Comment = ({ discussion }) => {
                             {clickedGoodCount}
                         </span>
                     </div>
+                    <div className={styles.editDelete}>
+                        <div className={styles.edit}>編輯</div>
+                        <div className={styles.delete}>刪除</div>
+                    </div>
                 </div>
                 {reply.map((reply, index) => {
                     return (
-                        <ReplyRecord
+                        <ReplyList
                             key={`reply${index}`}
                             reply={reply}
                             index={index}
@@ -52,9 +56,6 @@ const Comment = ({ discussion }) => {
                     );
                 })}
                 <div className={styles.replyCommentBox}>
-                    <div className={avatarStyle.avatarSm}>
-                        {name.substring(0, 1)}
-                    </div>
                     <div
                         className={styles.feedbackText}
                         onClick={() => setReplyComment(!replyComment)}>
@@ -62,7 +63,7 @@ const Comment = ({ discussion }) => {
                     </div>
                 </div>
                 {replyComment ? (
-                    <ReplyRecordForm setReplyComment={setReplyComment} />
+                    <NewReply setReplyComment={setReplyComment} />
                 ) : null}
             </div>
         </div>

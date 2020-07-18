@@ -2,7 +2,6 @@
 
 .addMessage {
 	display: grid;
-	grid-template-areas: "avatar" "textArea" "event";
 	grid-template-columns: 10% 75% auto;
 	column-gap: 10px;
 	width: 100%;
