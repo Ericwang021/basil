@@ -11,7 +11,6 @@ const CommentForm = ({ setShowComment }) => {
     const contextValue = useContext(context);
     const { discussionList, setDiscussionList } = contextValue;
     const [comment, setComment] = useState('');
-    const date = new Date();
     const commentSubmit = (event) => {
         event.preventDefault();
         const commentItem = {

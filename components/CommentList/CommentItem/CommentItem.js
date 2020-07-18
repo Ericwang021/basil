@@ -6,9 +6,10 @@ import ReplyList from '../ReplyList/ReplyList';
 import NewReply from '../NewReply/NewReply';
 
 const Comment = ({ discussion }) => {
+    console.log(discussion, 'commentItem');
     const { record } = discussion;
     const { name, content, date, goodCount, reply } = record;
-    const [replyComment, setReplyComment] = useState(false);
+    const [newReplyComment, setNewReplyComment] = useState(false);
     const [clickedAddOne, setClickedAddOne] = useState(false);
     const [clickedGoodCount, setClickedGoodCount] = useState(goodCount);
     const [editInput, setEditInput] = useState(false);
@@ -74,12 +75,12 @@ const Comment = ({ discussion }) => {
                 <div className={styles.replyCommentBox}>
                     <div
                         className={styles.feedbackText}
-                        onClick={() => setReplyComment(!replyComment)}>
+                        onClick={() => setNewReplyComment(!newReplyComment)}>
                         回覆
                     </div>
                 </div>
-                {replyComment ? (
-                    <NewReply setReplyComment={setReplyComment} />
+                {newReplyComment ? (
+                    <NewReply setNewReplyComment={setNewReplyComment} />
                 ) : null}
             </div>
         </div>

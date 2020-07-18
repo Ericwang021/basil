@@ -3,26 +3,27 @@ import buttonStyle from '../../../styles/components/buttons.module.scss';
 import styles from './NewReply.module.scss';
 import React, { useState, useContext } from 'react';
 import context from '../../context';
+import moment from 'moment';
 import SendIcon from '@material-ui/icons/Send';
 import { IconButton } from '@material-ui/core';
 
-const CommentReplyForm = ({ setReplyComment }) => {
+const CommentReplyForm = ({ setNewReplyComment }) => {
     const contextValue = useContext(context);
     const { discussionList, setDiscussionList } = contextValue;
     const [replyCommentValue, setReplyCommentValue] = useState('');
 
+    const { record } = discussionList[0];
+    const { reply } = record;
     const replyCommentSubmit = (event) => {
         event.preventDefault();
-        const replyCommentItem = {
-            replyRecord: {
-                name: 'REPLYName',
-                date: '2020/07/17',
-                content: replyCommentValue,
-                goodCount: 0,
-            },
-        };
+        const replyCommentItem = reply.push({
+            name: 'REPLYName',
+            date: moment().format('l'),
+            content: replyCommentValue,
+            goodCount: 0,
+        });
         setDiscussionList([replyCommentItem, ...discussionList]);
-        setReplyComment(false);
+        setNewReplyComment(false);
     };
     const changeReplyComment = (event) => {
         setReplyCommentValue(event.target.value);

@@ -5,6 +5,7 @@ import context from '../context';
 const CommentList = () => {
     const contextValue = useContext(context);
     const { discussionList } = contextValue;
+    console.log(discussionList, 'List');
     return discussionList.map((discussion, index) => (
         <CommentItem
             key={`comment${index}`}
