@@ -1,7 +1,7 @@
 import styles from "./CommentBox.module.scss";
 import React, { useState, useContext } from "react";
 import CommentList from "../CommentList/CommentList";
-import CommentForm from "../CommentForm/CommentForm";
+import CommentForm from "../CommentList/CommentForm/CommentForm";
 import context from "../context";
 import { IconFeedBack, IconSearch, IconClose, IconAdd } from "../Icon/Icon";
 

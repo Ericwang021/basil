@@ -1,22 +1,35 @@
+import buttonStyles from "../../styles/components/buttons.module.scss";
 import styles from "./VideoBox.module.scss";
-import React from "react";
-import ReactPlayer from "react-player/lazy";
-import { IconButton, Grid, Slider } from "@material-ui/core";
-import PlayArrowIcon from "@material-ui/icons/PlayArrow";
-import VolumeDown from "@material-ui/icons/VolumeDown";
-import VolumeUp from "@material-ui/icons/VolumeUp";
+import React, { useState } from "react";
 import ClosedCaptionIcon from "@material-ui/icons/ClosedCaption";
 import CropFreeIcon from "@material-ui/icons/CropFree";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+import ReactPlayer from "react-player/lazy";
+import VolumeDown from "@material-ui/icons/VolumeDown";
+import VolumeUp from "@material-ui/icons/VolumeUp";
+import { Grid, IconButton, Slider } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 
 const VideoBox = () => {
-	const [value, setValue] = React.useState(30);
-	const [unFold, setUnfold] = React.useState(false);
-	const handleChange = (event, newValue) => {
-		setValue(newValue);
+	const [slideValue, setSlideValue] = React.useState(30);
+	const [unFold, setUnfold] = useState(false);
+	const useStyles = makeStyles(() => ({
+		root: {
+			"& > svg": {
+				color: "#fff",
+			},
+		},
+	}));
+	const classes = useStyles();
+
+	const handleChange = (event, newSlideValue) => {
+		setSlideValue(newSlideValue);
 	};
+
 	const handleOnMouseOver = () => {
 		setUnfold(!unFold);
 	};
+
 	return (
 		<div className={styles.videoWrapper}>
 			<div className="videoPlayBox">
@@ -34,25 +47,30 @@ const VideoBox = () => {
 			<div className={styles.playController}>
 				<div className={styles.playAndVolume}>
 					<Grid item xs>
-						<IconButton style={{ color: "#fff" }}>
-							<PlayArrowIcon fontSize="large" style={{ color: "#fff" }} />
+						<IconButton className={buttonStyles.IconButtonLg}>
+							<div className={classes.root}>
+								<PlayArrowIcon fontSize="large" />
+							</div>
 						</IconButton>
 					</Grid>
-					<VolumeDown className={styles.volume} style={{ color: "#fff" }} />
+					<VolumeDown className={styles.volume} />
 					<Slider
 						className={styles.volumeMiddle}
-						value={value}
+						value={slideValue}
 						onChange={handleChange}
-						style={{ color: "#fff" }}
 					/>
-					<VolumeUp className={styles.volume} style={{ color: "#fff" }} />
+					<VolumeUp className={styles.volume} />
 				</div>
 				<div className={styles.rightController}>
-					<IconButton style={{ color: "#fff" }}>
-						<ClosedCaptionIcon fontSize="large" style={{ color: "#fff" }} />
+					<IconButton>
+						<div className={classes.root}>
+							<ClosedCaptionIcon fontSize="large" />
+						</div>
 					</IconButton>
-					<IconButton style={{ color: "#fff" }}>
-						<CropFreeIcon fontSize="large" style={{ color: "#fff" }} />
+					<IconButton>
+						<div className={classes.root}>
+							<CropFreeIcon fontSize="large" />
+						</div>
 					</IconButton>
 				</div>
 			</div>

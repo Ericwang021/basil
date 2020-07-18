@@ -12,9 +12,11 @@
 		.playAndVolume {
 			display: flex;
 			align-items: center;
+
 			.volume {
 				display: flex;
 				align-items: center;
+				color: #fff;
 			}
 			.volumeMiddle {
 				@extend .volume;

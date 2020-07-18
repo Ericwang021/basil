@@ -21,11 +21,7 @@
 	}
 }
 
-@mixin callToActionButton(
-	$width: 100%,
-	$fontSize: map-get($desktopFont, $h4-size),
-	$radius: 5px
-) {
+@mixin callToActionButton($width: 100%, $fontSize: map-get($desktopFont, $h4-size), $radius: 5px) {
 	width: $width;
 	font-size: $fontSize;
 	text-align: center;
