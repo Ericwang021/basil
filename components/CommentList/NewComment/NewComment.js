@@ -19,7 +19,6 @@ const NewComment = ({ setShowComment }) => {
         date: moment().format('l'),
         content: comment,
         goodCount: 0,
-        reply: [],
       },
     };
     setDiscussionList([commentItem, ...discussionList]);

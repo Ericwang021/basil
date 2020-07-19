@@ -2,13 +2,10 @@ import avatarStyle from '../../../styles/components/avatar.module.scss';
 import commonStyle from '../../../styles/components/common.module.scss';
 import commentDiscussStyles from '../../../styles/components/commentDiscuss.module.scss';
 import React, { useState } from 'react';
-import ReplyList from '../ReplyList/ReplyList';
-import NewReply from '../NewReply/NewReply';
 
 const CommentItem = ({ discussion, deletedCommentItem, index }) => {
   const { record } = discussion;
   const { name, content, date, goodCount } = record;
-  const [newReplyComment, setNewReplyComment] = useState(false);
   const [clickedAddOne, setClickedAddOne] = useState(false);
   const [clickedGoodCount, setClickedGoodCount] = useState(goodCount);
   const [showEditInput, setShowEditInput] = useState(false);
@@ -39,7 +36,7 @@ const CommentItem = ({ discussion, deletedCommentItem, index }) => {
           </div>
         </div>
         <div className={commentDiscussStyles.commentBox}>
-          <div className="contentBox">
+          <div className={commentDiscussStyles.contentBox}>
             {showEditInput ? (
               <input
                 className={commonStyle.input}
@@ -49,7 +46,7 @@ const CommentItem = ({ discussion, deletedCommentItem, index }) => {
               />
             ) : (
               <span className={commentDiscussStyles.commentContent}>
-                {editValue ? editValue : content}
+                {content}
               </span>
             )}
           </div>
@@ -79,21 +76,6 @@ const CommentItem = ({ discussion, deletedCommentItem, index }) => {
             )}
           </div>
         </div>
-        <div className={commentDiscussStyles.replyCommentBox}>
-          <div
-            className={commentDiscussStyles.feedbackText}
-            onClick={() => setNewReplyComment(!newReplyComment)}
-          >
-            回覆
-          </div>
-        </div>
-        {newReplyComment ? (
-          <NewReply
-            setNewReplyComment={setNewReplyComment}
-            deletedCommentItem={deletedCommentItem}
-          />
-        ) : null}
-        <ReplyList />
       </div>
     </div>
   );

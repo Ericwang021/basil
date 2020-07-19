@@ -13,7 +13,6 @@ const ReplyList = () => {
     ]);
   };
 
-  console.log(replyDiscussionList);
   return replyDiscussionList.map((replyDiscussionList, index) => {
     return (
       <ReplyItem
