@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CommentLayout from '../components/CommentLayout/CommentLayout';
-import ClassTitleWrapper from '../components/ClassTitleWrapper/ClassTitleWrapper';
+import ClassInfoWrapper from '../components/ClassInfoWrapper/ClassInfoWrapper';
 import VideoBox from '../components/VideoBox/VideoBox';
 import {
   defaultDiscussionList,
@@ -29,7 +29,7 @@ const Index = () => {
           <CommentLayout />
         </section>
         <section className="video-title-wrapper">
-          <ClassTitleWrapper />
+          <ClassInfoWrapper />
         </section>
       </div>
     </Provider>
