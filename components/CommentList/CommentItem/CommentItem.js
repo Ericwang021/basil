@@ -23,7 +23,7 @@ const CommentItem = ({ discussion, deletedCommentItem, index }) => {
     const handleEditChange = (event) => {
         setEditValue(event.target.value);
     };
-    console.log(record, 'record');
+    
     const handleSaveChange = () => {
         setShowEditInput(!showEditInput);
     };
