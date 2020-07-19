@@ -3,21 +3,21 @@ import CommentItem from './CommentItem/CommentItem';
 import context from '../context';
 
 const CommentList = () => {
-    const contextValue = useContext(context);
-    const { discussionList, setDiscussionList } = contextValue;
+  const contextValue = useContext(context);
+  const { discussionList, setDiscussionList } = contextValue;
 
-    const deletedCommentItem = (index) => {
-        setDiscussionList(discussionList.slice(1), index);
-    };
+  const deletedCommentItem = (index) => {
+    setDiscussionList(discussionList.slice(1), index);
+  };
 
-    return discussionList.map((discussion, index) => (
-        <CommentItem
-            key={`comment${index}`}
-            discussion={discussion}
-            index={index}
-            deletedCommentItem={deletedCommentItem}
-        />
-    ));
+  return discussionList.map((discussion, index) => (
+    <CommentItem
+      key={`comment${index}`}
+      discussion={discussion}
+      index={index}
+      deletedCommentItem={deletedCommentItem}
+    />
+  ));
 };
 
 export default CommentList;

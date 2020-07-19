@@ -8,44 +8,44 @@ import SendIcon from '@material-ui/icons/Send';
 import { IconButton } from '@material-ui/core';
 
 const NewReply = ({ setNewReplyComment }) => {
-    const contextValue = useContext(context);
-    const { replyDiscussionList, setReplyDiscussionList } = contextValue;
-    const [replyCommentValue, setReplyCommentValue] = useState('');
-    const replyCommentSubmit = (event) => {
-        event.preventDefault();
-        const replyCommentItem = {
-            reply: {
-                name: 'REPLYName',
-                date: moment().format('l'),
-                content: replyCommentValue,
-                goodCount: 0,
-            },
-        };
-        setReplyDiscussionList([replyCommentItem, ...replyDiscussionList]);
-        setNewReplyComment(false);
+  const contextValue = useContext(context);
+  const { replyDiscussionList, setReplyDiscussionList } = contextValue;
+  const [replyCommentValue, setReplyCommentValue] = useState('');
+  const replyCommentSubmit = (event) => {
+    event.preventDefault();
+    const replyCommentItem = {
+      reply: {
+        name: 'REPLYName',
+        date: moment().format('l'),
+        content: replyCommentValue,
+        goodCount: 0,
+      },
     };
-    const changeReplyComment = (event) => {
-        setReplyCommentValue(event.target.value);
-    };
-    return (
-        <form onSubmit={replyCommentSubmit}>
-            <div className={styles.addMessage}>
-                <div className={avatarStyle.avatarMl}>E</div>
-                <div className={styles.textAreaBox}>
-                    <textarea
-                        value={replyCommentValue}
-                        onChange={changeReplyComment}
-                        placeholder="新增回覆"
-                    />
-                </div>
-                <button className={buttonStyle.iconButtonSm}>
-                    <IconButton>
-                        <SendIcon fontSize="small" />
-                    </IconButton>
-                </button>
-            </div>
-        </form>
-    );
+    setReplyDiscussionList([replyCommentItem, ...replyDiscussionList]);
+    setNewReplyComment(false);
+  };
+  const changeReplyComment = (event) => {
+    setReplyCommentValue(event.target.value);
+  };
+  return (
+    <form onSubmit={replyCommentSubmit}>
+      <div className={styles.addMessage}>
+        <div className={avatarStyle.avatarMl}>E</div>
+        <div className={styles.textAreaBox}>
+          <textarea
+            value={replyCommentValue}
+            onChange={changeReplyComment}
+            placeholder="新增回覆"
+          />
+        </div>
+        <button className={buttonStyle.iconButtonSm}>
+          <IconButton>
+            <SendIcon fontSize="small" />
+          </IconButton>
+        </button>
+      </div>
+    </form>
+  );
 };
 
 export default NewReply;
