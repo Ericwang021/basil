@@ -7,8 +7,11 @@ const CommentList = () => {
   const { discussionList, setDiscussionList } = contextValue;
 
   const deletedCommentItem = (index) => {
-    setDiscussionList(discussionList.slice(1), index);
+    setDiscussionList(
+      discussionList.slice(index !== 0 ? 0 + index : index + 1),
+    );
   };
+  console.log(discussionList);
 
   return discussionList.map((discussion, index) => (
     <CommentItem

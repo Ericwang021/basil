@@ -6,9 +6,14 @@ const ReplyList = () => {
   const contextValue = useContext(context);
   const { replyDiscussionList, setReplyDiscussionList } = contextValue;
 
-  const deleteReplyComment = () => {
-    setReplyDiscussionList(replyDiscussionList.slice(1));
+  const deleteReplyComment = (index) => {
+    setReplyDiscussionList([
+      ...[replyDiscussionList].splice(0, index),
+      ...[replyDiscussionList].splice(index, replyDiscussionList.length),
+    ]);
   };
+
+  console.log(replyDiscussionList);
   return replyDiscussionList.map((replyDiscussionList, index) => {
     return (
       <ReplyItem
