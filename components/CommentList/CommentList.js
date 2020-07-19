@@ -7,8 +7,9 @@ const CommentList = () => {
   const { discussionList, setDiscussionList } = contextValue;
 
   const deletedCommentItem = (index) => {
-    setDiscussionList(discussionList.slice(1));
+    setDiscussionList(discussionList.slice(1), index);
   };
+
   return discussionList.map((discussion, index) => (
     <CommentItem
       key={`comment${index}`}

@@ -75,7 +75,7 @@ const CommentItem = ({ discussion, deletedCommentItem, index }) => {
             {showEditInput ? (
               <div onClick={handleSaveChange}>儲存</div>
             ) : (
-              <div onClick={deletedCommentItem}>刪除</div>
+              <div onClick={() => deletedCommentItem(index)}>刪除</div>
             )}
           </div>
         </div>
