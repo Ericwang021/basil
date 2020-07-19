@@ -15,7 +15,7 @@ const NewReply = ({ setNewReplyComment }) => {
     event.preventDefault();
     const replyCommentItem = {
       reply: {
-        name: 'REPLYName',
+        name: 'Eric',
         date: moment().format('l'),
         content: replyCommentValue,
         goodCount: 0,

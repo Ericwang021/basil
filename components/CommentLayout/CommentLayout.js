@@ -3,13 +3,21 @@ import React, { useState, useContext, Fragment } from 'react';
 import CommentList from '../CommentList/CommentList';
 import NewComment from '../CommentList/NewComment/NewComment';
 import context from '../context';
+import * as R from 'ramda';
 import { IconAdd, IconClose, IconSearch, IconFeedBack } from '../Icon/Icon';
 
 const CommentLayout = () => {
   const contextValue = useContext(context);
-  const { discussionList } = contextValue;
+  const { discussionList, replyDiscussionList } = contextValue;
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [showComment, setShowComment] = useState(false);
+  const [searchInput, setSearchInput] = useState('');
+
+  const searchHandleChange = (event) => {
+    setSearchInput(event.target.value);
+    const searchData = [...discussionList, ...replyDiscussionList];
+    R.filter((searchInput) => searchInput, searchData);
+  };
 
   return (
     <Fragment>
@@ -25,7 +33,13 @@ const CommentLayout = () => {
               </div>
               <div className={styles.searchBox}>
                 {showSearchBar ? (
-                  <input type="text" placeholder="搜尋討論" />
+                  <input
+                    type="text"
+                    placeholder="搜尋討論"
+                    value={searchInput}
+                    onChange={searchHandleChange}
+                    onKeyPress={searchHandleChange}
+                  />
                 ) : null}
                 <span onClick={() => setShowSearchBar(!showSearchBar)}>
                   {showSearchBar ? <IconClose /> : <IconSearch />}

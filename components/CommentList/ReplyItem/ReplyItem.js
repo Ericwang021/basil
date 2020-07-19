@@ -2,24 +2,19 @@ import avatarStyle from '../../../styles/components/avatar.module.scss';
 import commonStyle from '../../../styles/components/common.module.scss';
 import commentDiscussStyles from '../../../styles/components/commentDiscuss.module.scss';
 import React, { useState } from 'react';
-import NewReply from '../NewReply/NewReply';
 
-const ReplyItem = ({ replyDiscussionList, deletedCommentItem, index }) => {
+const ReplyItem = ({ replyDiscussionList, deleteReplyComment }) => {
   const { reply } = replyDiscussionList;
-  const { content, date, name, goodCount } = reply;
-  const [newReplyComment, setNewReplyComment] = useState(false);
-  const [clickedAddOne, setClickedAddOne] = useState(false);
-  const [clickedGoodCount, setClickedGoodCount] = useState(goodCount);
+  const { content, date, name } = reply;
   const [showEditInput, setShowEditInput] = useState(false);
   const [editValue, setEditValue] = useState(content);
-  const clickedLattice = () => {
-    !clickedAddOne
-      ? setClickedGoodCount(clickedGoodCount + 1)
-      : setClickedGoodCount(clickedGoodCount - 1);
-    setClickedAddOne(!clickedAddOne);
-  };
+
   const handleEditChange = (event) => {
     setEditValue(event.target.value);
+  };
+  const handleSaveChange = () => {
+    setShowEditInput(!showEditInput);
+    setEditValue(editValue);
   };
   return (
     <div className={commentDiscussStyles.comment}>
@@ -46,43 +41,17 @@ const ReplyItem = ({ replyDiscussionList, deletedCommentItem, index }) => {
               </span>
             )}
           </div>
-          <div className={commentDiscussStyles.rightContent}>
-            <span
-              className={
-                clickedAddOne
-                  ? commentDiscussStyles.clicked
-                  : commentDiscussStyles.lattice
-              }
-              onClick={clickedLattice}
-            >
-              +1
-            </span>
-            <span className={commentDiscussStyles.number}>
-              {clickedGoodCount}
-            </span>
-          </div>
           <div className={commentDiscussStyles.editDelete}>
             <div onClick={() => setShowEditInput(!showEditInput)}>
               {`${showEditInput ? '取消' : '編輯'}`}
             </div>
             {showEditInput ? (
-              <div>儲存</div>
+              <div onClick={handleSaveChange}>儲存</div>
             ) : (
-              <div onClick={() => deletedCommentItem(index + 1)}>刪除</div>
+              <div onClick={deleteReplyComment}>刪除</div>
             )}
           </div>
         </div>
-        <div className={commentDiscussStyles.replyCommentBox}>
-          <div
-            className={commentDiscussStyles.feedbackText}
-            onClick={() => setNewReplyComment(!newReplyComment)}
-          >
-            回覆
-          </div>
-        </div>
-        {newReplyComment ? (
-          <NewReply setNewReplyComment={setNewReplyComment} />
-        ) : null}
       </div>
     </div>
   );
