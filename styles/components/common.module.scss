@@ -2,6 +2,7 @@
 @import '../global/typeFont.scss';
 @import '../global/variable';
 
+//全站共用 page section title style
 .sectionTitle {
     font-size: map-get($desktopFont, $h3-size);
     font-weight: $font-weight-bold;
@@ -9,6 +10,7 @@
     margin-bottom: 25px;
 }
 
+//專屬問題討論編輯用 Input
 .input {
     width: 100%;
     border: solid 1px $gray04;

@@ -1,11 +1,13 @@
 @import '../global/color';
 @import '../global/typeFont.scss';
 @import '../global/_variable.scss';
+
+// 問題與討論區塊共用style
 .comment {
     width: 100%;
     display: grid;
     grid-template-columns: 10% auto;
-    column-gap: 10px;
+    column-gap: 5px;
     margin-top: 10px;
     div {
         &.avatar {
