@@ -4,7 +4,7 @@ import commentDiscussStyles from '../../../styles/components/commentDiscuss.modu
 import React, { useState } from 'react';
 import NewReply from '../NewReply/NewReply';
 
-const ReplyItem = ({ replyDiscussionList }) => {
+const ReplyItem = ({ replyDiscussionList, deletedCommentItem, index }) => {
     const { reply } = replyDiscussionList;
     const { content, date, name, goodCount } = reply;
     const [newReplyComment, setNewReplyComment] = useState(false);

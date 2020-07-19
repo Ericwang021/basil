@@ -88,7 +88,10 @@ const CommentItem = ({ discussion, deletedCommentItem, index }) => {
                     </div>
                 </div>
                 {newReplyComment ? (
-                    <NewReply setNewReplyComment={setNewReplyComment} />
+                    <NewReply
+                        setNewReplyComment={setNewReplyComment}
+                        deletedCommentItem={deletedCommentItem}
+                    />
                 ) : null}
                 <ReplyList />
             </div>
